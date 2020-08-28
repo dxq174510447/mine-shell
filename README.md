@@ -11,7 +11,7 @@ kubectl get pods  -o=go-template='{{range $m := .items}}{{$m.metadata.name}}{{"\
 ## java
 通过javabean生成所有set方法
 ```
-grep -v '@' bean.data | grep -v '*'  | sed -e 's/^\s\+//g' -e '/^$/d'   | sed -e 's/\(\S\+\)\s\+\(\S\+\)\s\+\(\S\+\);/\3/' -e 's/^\([a-z]\)/result\.set\u\1/g' -e 's/$/(null);/g'
+grep -v '@' bean.data | grep -v '*' | grep -v '//'  | sed -e 's/^\s\+//g' -e '/^$/d' -e 's/\s*=.\+/;/'   | sed -e 's/\(\S\+\)\s\+\(\S\+\)\s\+\(\S\+\);/\3/' -e 's/^\([a-z]\)/info\.set\u\1/g' -e 's/$/(null);/g'
 ```
 
 通过数据库生成所有set方法

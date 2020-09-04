@@ -30,4 +30,7 @@ echo "ibase=16;D831"| bc   ## 转换10进制 55345
 ps -mp 55052 -o %cpu,%mem,time,tid  ##在去里面查找
 ```
 
+## jq
 cat bean.json | jq ".result.records[]|.name,.id"
+
+cat bean.json | jq -r '.result.records[]| "\(.name),\(.id)"'

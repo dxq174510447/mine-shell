@@ -29,3 +29,5 @@ jstack 55052 > 22.txt ##从文件里面查找d70d
 echo "ibase=16;D831"| bc   ## 转换10进制 55345
 ps -mp 55052 -o %cpu,%mem,time,tid  ##在去里面查找
 ```
+
+cat bean.json | jq ".result.records[]|.name,.id"

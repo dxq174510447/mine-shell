@@ -31,6 +31,10 @@ ps -mp 55052 -o %cpu,%mem,time,tid  ##在去里面查找
 ```
 
 ## jq
+https://github.com/stedolan/jq/wiki/Cookbook
+
+```shell
 cat bean.json | jq ".result.records[]|.name,.id"
 
 cat bean.json | jq -r '.result.records[]| "\(.name),\(.id)"'
+```

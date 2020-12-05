@@ -19,6 +19,11 @@ grep -v '@' bean.data | grep -v '*' | grep -v '//'  | sed -e 's/^\s\+//g' -e '/^
 sed -e 's/_\([a-z]\)/\u\1/g' -e 's/^\([a-z]\)/orderPay\.set\u\1/g' -e 's/$/(null);/g' column.data
 ```
 
+通过excel文件头生成ddl
+```
+cat head.data | sed -s 's/\s\+/\n/g' | sed -s 's/^[^\-]\+\-\([a-z]\+\)$/\1 varchar(200),/g'
+```
+
 #### 通过进程查找消耗资源的线程
 ```shell
 ps -mp 55052 -o %cpu,%mem,time,tid  

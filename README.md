@@ -24,6 +24,16 @@ sed -e 's/_\([a-z]\)/\u\1/g' -e 's/^\([a-z]\)/orderPay\.set\u\1/g' -e 's/$/(null
 cat head.data | sed -s 's/\s\+/\n/g' | sed -s 's/^[^\-]\+\-\([a-z]\+\)$/\1 varchar(200),/g'
 ```
 
+通过word生成javabean
+```
+1.      TESTNO  检测报告编码    非空
+2.      JYLSH   检验流水号      非空，唯一索引
+
+
+cat head.data | sed -e 's/^\(\S\+\)\s\+\(\S\+\)\s\+\(.\+\)$/@ApiModelProperty(value = "\3")\nprivate String \L\2;/g'
+
+```
+
 #### 通过进程查找消耗资源的线程
 ```shell
 ps -mp 55052 -o %cpu,%mem,time,tid  

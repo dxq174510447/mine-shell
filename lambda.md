@@ -11,3 +11,10 @@ List<String> positionIds = r1.stream().filter(r->StringUtil.hasText(r.getPositio
 				
 
 ```
+
+
+```java
+Map<String, List<String>> r1ref = r2.stream().collect(Collectors.groupingBy(
+					UserOwnerPosition::getOwnerId,
+					Collectors.mapping(UserOwnerPosition::getPositionId, Collectors.toList())));
+```

@@ -65,10 +65,19 @@ ab -H 'Content-Type: application/json'  -H 'ctl-bbxc-terminal: 3' -H 'ctl-appid:
 ## go
 
 ### 通过查询结果生成struct 
+```shell
 
+sed -e 's/_\([a-z]\)/\u\1/g' -e 's/^\([a-z]\)/  \u\1/g'  -e 's/$/ string/g' dd.data  | sed  '1 i\type User struct {' | sed  '$a\}'
+
+```
 
 ### 通过查询结果生成struct的赋值语句
 
+```shell
+
+grep -v "//" dd.data | sed -s 's/^\s\+//g' | awk 'BEGIN{FS=" "}{printf("%s.%s=nil\n","result",$1)}'
+
+```
 
 ### 通过查询结构生存带orm标签的struct
 

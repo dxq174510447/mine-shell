@@ -61,3 +61,15 @@ cat bean.json | jq -r '.result.records[]| "\(.name),\(.id)"'
 ab -H 'Content-Type: application/json'  -H 'ctl-bbxc-terminal: 3' -H 'ctl-appid: wxb69b26693b196da7' -H 'ctl-user-id: 20191223150227qtqxxsrbdiepwk2sevxnvx' -H 'ctl-login-type: customer' -H 'ctl-open-id: oKvzl5aaEZEeohjxtncEoCq4-Wuo'  -T 'application/json' -t 300 -p sec.txt -n 100 -c 100 http://localhost:8433/api/bbxc/order/outer/wx/order/pay
 
 ```
+
+## go
+
+### 通过查询结果生成struct 
+
+
+### 通过查询结果生成struct的赋值语句
+
+
+### 通过查询结构生存带orm标签的struct
+
+

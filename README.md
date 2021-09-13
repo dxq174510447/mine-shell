@@ -52,6 +52,8 @@ https://github.com/stedolan/jq/wiki/Cookbook
 cat bean.json | jq ".result.records[]|.name,.id"
 
 cat bean.json | jq -r '.result.records[]| "\(.name),\(.id)"'
+
+cat dd.data  | sed 's/\\u0022/"/g' | jq  -r '.templatesV2.Active.data.results[]| "\(.uuid),\(.templateName)"'
 ```
 
 
